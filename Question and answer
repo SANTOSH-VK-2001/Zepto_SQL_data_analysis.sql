@@ -47,11 +47,15 @@ FROM zepto
 GROUP BY outofstock
 
 --6 * Which Category contributes the most to the total value of inventory on hand?
-SELECT category, SUM(discountedsellingprice * availablequantity) AS inventory_value
+SELECT Category, SUM(discountedsellingprice * availablequantity) AS Total_Inventory_Value
 FROM zepto
-WHERE outOfStock = FALSE 
-GROUP BY category
-ORDER BY inventory_value DESC
+GROUP BY Category
+ORDER BY Total_Inventory_Value DESC
+LIMIT 5;
+
+
+
+
 
 
 
